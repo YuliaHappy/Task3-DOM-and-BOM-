@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="style/style.css">
+		<script src="script/InstallationPattern.js"></script>
+		<script src="script/InformationPreservation.js"></script>
+		<script src="script/InsurancePolicy.js"></script>
+		<script src="script/InsuranceUtil.js"></script>
+		<script src="script/TableUtil.js"></script>
+		<title>DOM and BOM</title>
+	</head>
+	<body>
+		<section>
+			<div>Введите данные</div>
+			<ul>
+				<li>
+					<div>Вид страхования</div>
+					<select id="typeInsurance" onchange=typeChangePolicy()>
+						<option selection="selected">КАСКО</option>
+						<option>ОСАГО</option>
+						<option>ДАГО</option>
+					</select>
+				</li>
+				<li>
+					<div>Номер полиса</div>
+					<input type="text" id="numberPolicy" pattern="^[0][0-4][0-9][aA][tT][-][0-2][0-9][/][0-9]{5}$" required value=""/>
+				</li>
+				<li>
+					<div>Страхователь</div>
+					<input type="text" id="nameInsurer" placeholder="ФИО"/>
+				</li>
+				<li>
+					<div>Дата продажи</div>
+					<input type="date" id="dataSale"/>
+				</li>
+				<li>
+					<div>Страхоаая премия</div>
+					<input type="number" min="0" id="premium"/>
+				</li>
+				<li>
+					<div>Скидка</div>
+					<input type="number" min="0" max="100" step="0.1" id="discount"/>
+				</li>
+			</ul>
+			<button onclick="saveInformation();">Сохранить</button>
+		</section>
+		</br>
+		<section>
+			<table id="table">
+				<caption>Сохраненные страховые полиса</caption>
+				<thead>
+					<tr>
+						<td>№</td>
+						<td>Вид страхования</td>
+						<td>№ полиса</td>
+						<td>Страхователь</td>
+						<td>Дата продажи</td>
+						<td>Страховая премия</td>
+						<td>Скидка</td>
+					</tr>
+				</thead>
+				<tbody>
+				<script>completeTable();</script>
+				</tbody>
+			</table>
+			<button onclick="deleteEntry();">Удалить</button>
+			<button onclick="deleteAllInformation();">Удалить все</button>
+		</section>
+	</body>
+</html>
